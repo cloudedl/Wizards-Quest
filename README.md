@@ -14,6 +14,8 @@ Battles will incorporate an enemy AI that will battle you. Enemies will be store
 
 Damage will be determined by (math.random). Each ability button will run a function that attacks the enemy with chosen element type.
 
+Pokemon inspired battle type. Maybe a text box pops up that says "Not very effective" or "Super Effective!"
+
 ## Victory!
 ![You win!](/img/projectimages/IMG_0335.jpg)
 
