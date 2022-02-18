@@ -1,5 +1,28 @@
 # Wizards-Quest
 
+
+## MVP
+1. Have a Splash Screen with a Start Button
+2. Have one Battle Sequence with one elemental. Each Character will have it's own visual sprite. 
+3. The elemental must be automated and will not take it's turn until after you do. 
+4. The elemental must have a weakness(do more damage) and a strong against(do less damage) from two of the Wizard's abilities.
+5. Abilities will not be clickable once enemy is defeated. 
+6. A victory splash screen.
+
+## Stretch goals
+1. Have the wizard walk across the screen before the first battle. Maybe some limited introductory text in a box. 
+2. have 3 separate fights with elementals of different types
+3. have loot rewards from each fight. Such as Health Potions.
+4. have the wizard walk again in the victory screen. perhaps into the sunset with limited closing text in a box. 
+
+
+
+
+
+
+
+
+
 ## I'm walking here. 
    ![Wizard Walking](/img/projectimages/IMG_0337.jpg)
 
