@@ -28,6 +28,14 @@
     //turn counter for each turn in the battler
     let turn = 1 
 
+    //function to write current health status of characters into html
+    const healthStatus = () => {
+        wizardHealth.innerText = `Wizard Health: ${wizard.health}`
+        fireElementalHealth.innerText = `Elemental Health ${fireElemental.health}`
+    }
+
+
+
 
 // Functions for Attacks and Heals
     const fireball = () => {
@@ -47,8 +55,9 @@
         
         enemyAttack()
         turn += 1
-       
+    
         console.log('did fireball reduce health of fireElemental' , fireElemental)
+        healthStatus()
     }
     
 
@@ -71,7 +80,7 @@
         enemyAttack()
         turn +=1
         console.log('did waterJet reduce the health of the fireElemental', fireElemental)
-        wizardHealth.document.innerText = 'Wizard Health: ', wizard.health
+        healthStatus()
     }
 
     // waterJet()
@@ -95,6 +104,7 @@
         enemyAttack()
         turn += 1
         console.log('did vineWhip reduce the health of the fireElemental', fireElemental)
+        healthStatus()
     }
 
     const heal = () => {
@@ -105,8 +115,9 @@
         console.log('is my wizard healing', wizard)
         enemyAttack()
         turn += 1
+        healthStatus()
     }
-  
+
 
 
     const enemyAttack = () => {
@@ -119,9 +130,9 @@
             wizard.health -= superDamage
             console.log('how much superDamage was done', superDamage)
         } else {
-            min = Math.ceil(1);
-            max = Math.floor(8);
-            let damage = Math.floor(Math.random() * (8 - 1) + 1);
+            min = Math.ceil(2);
+            max = Math.floor(6);
+            let damage = Math.floor(Math.random() * (6 - 2) + 2);
             wizard.health -= damage
             console.log ('damage done by enemy', damage)
         }
@@ -129,13 +140,31 @@
         console.log('did the wizard take damage', wizard)
         console.log('what turn is it', turn)
 
+
+        //function disables the buttons once someone is defeated. 
+        const disableButtons = () => {
+            document.getElementById('waterJet').disabled = true
+            document.getElementById('fireBall').disabled = true
+            document.getElementById('heal').disabled = true
+            document.getElementById('vineWhip').disabled = true
+        }
+
+        //what happens when someone dies.
+        if (wizard.health < 1) {
+            console.log('the player is dead')
+            wizard.health = 0
+            disableButtons()
+        } else if (fireElemental.health < 1) {
+            console.log('player wins!')
+            fireElemental.health = 0
+            disableButtons()
+        }
+
     }
 
-if (wizard.health < 1) {
-    console.log('the player is dead')
-} else if (fireElemental.health < 1) {
-    console.log('player wins!')
-}
+
+    
+
 
 
 //hides the splash screen and reveals the battleBox elements
@@ -147,14 +176,15 @@ const startGame = () => {
     battler.style.display = 'inline'
 }
 
+const wizardHealth = document.getElementById('wizardHealth')
+const fireElementalHealth = document.getElementById('fireElementalHealth')        
+document.getElementById('start').addEventListener('click', startGame)
+document.getElementById('heal').addEventListener('click', heal )
+document.getElementById('waterJet').addEventListener('click', waterJet)
+document.getElementById('vineWhip').addEventListener('click', vineWhip)
+document.getElementById('fireBall').addEventListener('click', fireball)
 
-    const wizardHealth = document.getElementById('wizardHealth')
-    const fireElementalHealth = document.getElementById('fireElementalHealth')
-    document.getElementById('start').addEventListener('click', startGame)
-    document.getElementById('heal').addEventListener('click', heal )
-    document.getElementById('waterJet').addEventListener('click', waterJet)
-    document.getElementById('vineWhip').addEventListener('click', vineWhip)
-    document.getElementById('fireBall').addEventListener('click', fireball)
+    
 
 //Create Static Splash Screen in HTML
     //Create a button that manipulates the DOM to load the first fight

@@ -8,4 +8,8 @@ body {
     font-family: 'Press Start 2P', cursive;
 }
 
-/* color of wizard and elemental 00B506 */
+.battlebox {
+    border: 10px solid #00B506;
+    width: 800px;
+    height: 600px;
+}
