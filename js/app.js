@@ -1,5 +1,6 @@
 // document.addEventListener("DOMContentLoaded", () => {})
 
+// document.getElementById('chapter-1').addEventListener('click', makeMiddleEarth)
 
 
 //Objects for Characters
@@ -26,6 +27,8 @@
         health: 40
     }
 
+    //turn counter for each turn in the battler
+    let turn = 1 
 
 
 // Functions for Attacks and Heals
@@ -34,9 +37,8 @@
         max = Math.floor(8);
         let damage = Math.floor(Math.random() * (8 - 1) + 1);
         console.log('damage done by fireball', damage)
-        // fireElemental.health = fireElemental.health - damage
         if (fireElemental.type === 'grass') {
-            damage = 1.5 * damage
+            damage = 2 * damage
             fireElemental.health = fireElemental.health - damage
         } else if (fireElemental.type === 'water') {
             damage = damage / 2
@@ -45,64 +47,101 @@
             fireElemental.health = fireElemental.health + damage
         } 
         
+        enemyAttack()
+        turn += 1
+       
+        console.log('did fireball reduce health of fireElemental' , fireElemental)
     }
-    // console.log('is my fireball producing damage', fireball())
-    fireball()
-    console.log('did fireball reduce health of fireElemental' , fireElemental)
+    
 
     const waterJet = () => {
         min = Math.ceil(1);
         max = Math.floor(8);
         let damage = Math.floor(Math.random() * (8 - 1) + 1);
+        console.log('damage done by waterJet', damage)
 
-        if (enemy.type === 'fire') {
-            damage = 1.5 * damage
-            return damage
-        } else if (enemy.type === 'grass') {
+        if (fireElemental.type === 'fire') {
+            damage = 2 * damage
+            fireElemental.health = fireElemental.health - damage
+        } else if (fireElemental.type === 'grass') {
             damage = damage / 2
-            return damage
+            fireElemental.health = fireElemental.health - damage
         } else {
-            return damage
+            fireElemental.health = fireElemental.health + damage
         }
+
+        enemyAttack()
+        turn +=1
+        console.log('did waterJet reduce the health of the fireElemental', fireElemental)
     }
 
-    const vineStrike = () => {
+    // waterJet()
+    // console.log('did waterJet do extra damage', fireElemental)
+
+    const vineWhip = () => {
         min = Math.ceil(1);
         max = Math.floor(8);
         let damage = Math.floor(Math.random() * (8 - 1) + 1);
+        console.log('damage done by vineWhip', damage)
 
-        if (enemy.type === 'water') {
-            damage = 1.5 * damage
-            return damage
-        } else if (enemy.type === 'fire') {
+        if (fireElemental.type === 'water') {
+            damage = 2 * damage
+            fireElemental.health = fireElemental.health - damage
+        } else if (fireElemental.type === 'fire') {
             damage = damage / 2
-            return damage
+            fireElemental.health = fireElemental.health - damage
         } else {
-            return damage
+            fireElemental.health = fireElemental.health + damage
         }
+        enemyAttack()
+        turn += 1
+        console.log('did vineWhip reduce the health of the fireElemental', fireElemental)
     }
 
     const heal = () => {
         min = Math.ceil(2);
         max = Math.floor(12);
-        return Math.floor(Math.random() * (12 - 2) + 2);
+        healing = Math.floor(Math.random() * (12 - 2) + 2);
+        wizard.health += healing
+        console.log('is my wizard healing', wizard)
+        enemyAttack()
+        turn += 1
     }
-    // console.log('does heal do 2 - 12 randomly?' , heal())
+  
+
 
     const enemyAttack = () => {
-        min = Math.ceil(1);
-        max = Math.floor(8);
-        let damage = Math.floor(Math.random() * (8 - 1) + 1);
+        
+
+        if (turn % 3 === 0) {
+            min = Math.ceil(5);
+            max = Math.floor(15);
+            let superDamage = Math.floor(Math.random() * (15 - 5) + 5);
+            wizard.health -= superDamage
+            console.log('how much superDamage was done', superDamage)
+        } else {
+            min = Math.ceil(1);
+            max = Math.floor(8);
+            let damage = Math.floor(Math.random() * (8 - 1) + 1);
+            wizard.health -= damage
+            console.log ('damage done by enemy', damage)
+        }
+        
+        console.log('did the wizard take damage', wizard)
+        console.log('what turn is it', turn)
 
     }
 
-    const enemySuper =() => {
-        min = Math.ceil(5);
-        max = Math.floor(15);
-        let damage = Math.floor(Math.random() * (8 - 1) + 1);
+if (wizard.health < 1) {
+    console.log('the player is dead')
+} else if (fireElemental.health < 1) {
+    console.log('player wins!')
+}
 
-    }
-
+    document.getElementById('heal').addEventListener('click', heal )
+    document.getElementById('waterJet').addEventListener('click', waterJet)
+    document.getElementById('vineWhip').addEventListener('click', vineWhip)
+    document.getElementById('fireBall').addEventListener('click', fireball)
 
 //Create Static Splash Screen in HTML
     //Create a button that manipulates the DOM to load the first fight
