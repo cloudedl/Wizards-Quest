@@ -1,7 +1,5 @@
 // document.addEventListener("DOMContentLoaded", () => {})
 
-// document.getElementById('chapter-1').addEventListener('click', makeMiddleEarth)
-
 
 //Objects for Characters
     const fireElemental = {
@@ -73,6 +71,7 @@
         enemyAttack()
         turn +=1
         console.log('did waterJet reduce the health of the fireElemental', fireElemental)
+        wizardHealth.document.innerText = 'Wizard Health: ', wizard.health
     }
 
     // waterJet()
@@ -138,6 +137,20 @@ if (wizard.health < 1) {
     console.log('player wins!')
 }
 
+
+//hides the splash screen and reveals the battleBox elements
+const startGame = () => {
+    let start = document.getElementById('splashScreen')
+    let battler = document.getElementById('battleBox')
+
+    start.style.display = 'none'
+    battler.style.display = 'inline'
+}
+
+
+    const wizardHealth = document.getElementById('wizardHealth')
+    const fireElementalHealth = document.getElementById('fireElementalHealth')
+    document.getElementById('start').addEventListener('click', startGame)
     document.getElementById('heal').addEventListener('click', heal )
     document.getElementById('waterJet').addEventListener('click', waterJet)
     document.getElementById('vineWhip').addEventListener('click', vineWhip)
