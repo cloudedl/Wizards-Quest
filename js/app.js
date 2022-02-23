@@ -149,19 +149,23 @@
         playerHealthStatus()
 
 
-       
-
+      
+        
         //what happens when someone dies.
         if (wizard.health < 1) {
             console.log('the player is dead')
             wizard.health = 0
             disableButtons(true)
             playerHealthStatus()
+            document.getElementById('wizard').style.transform = 'rotate(90deg)';
+            document.getElementById('defeat').style.display = 'inline'
         } else if (fireElemental.health < 1) {
             console.log('player wins!')
             fireElemental.health = 0
             disableButtons(true)
             enemyHealthStatus()
+            document.getElementById('fireElemental').style.transform = 'rotate(-90deg)';
+            document.getElementById('victory').style.display = 'inline'
         }
 
     }

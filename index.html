@@ -20,13 +20,21 @@
 
     <div id="battleBox" style="display: none;">
 
+        <div id="victory" style="display: none;">
+            <p>The Quest Continues!</p>
+        </div>
+        
+        <div id="defeat" style="display: none;">
+            <p>The Wizard has fallen. <br> Try Again?</p>
+            <button id="restart"onClick="window.location.reload();">Restart</button>
+        </div>
+        
         <div id="enemyStatus">
             <p id='fireElementalHealth'>Elemental Health: 40</p>
             <p id="combatLog">Log Location</p>
         </div>
 
-        <img src="img/FireElemental.png" alt="fireElemental" id="fireElemental">
-        <img src="img/wizard.png" alt="pixel art wizard" id="wizard">
+
 
         <div id="playerStatus">
 
@@ -38,7 +46,13 @@
                 <button id="vineWhip">Vine Whip</button>
             </div>
         </div>
-        
+
+        <img src="img/FireElemental.png" alt="fireElemental" id="fireElemental">
+        <img src="img/wizard.png" alt="pixel art wizard" id="wizard" >
+        <img src="img/FireBall.png" alt="" id="fireBallA" style="display: none;">
+        <img src="img/VineWhip.png" alt="" id="vineWhipA" style="display: none;">
+        <img src="img/waterJet.png" alt="" id="waterJetA" style="display: none;">
+        <img src="img/fireElementalAttack.png" alt="" id="fireElementA" style="display: block;">
 
     </div>
 

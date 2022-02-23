@@ -8,13 +8,6 @@ body {
     font-family: 'Press Start 2P', cursive;
 }
 
-/* #rectangle {
-    width: 300px;
-    border: 15px solid green;
-    padding: 50px;
-    margin: 20px;
-} */
-
 button {
     background-color: #00B506;
     border: none;
@@ -41,16 +34,36 @@ button:hover {
     margin-left: 17%;
 }
 
+#victory {
+    position: absolute;
+    background-color: #00B506;
+    left: 450px;
+    top:350px;
+    border: 10px solid #00B506;
+    color: white;
+    
+}
+
+#defeat {
+    position: absolute;
+    background-color: #00B506;
+    left: 450px;
+    top:350px;
+    border: 10px solid #00B506;
+    color: white;
+}
 #fireElemental {
     position: absolute;
-    right: 40px;
+    right: 100px;
     top: 100px;
+    z-index: -1;
 }
 
 #wizard {
     position: absolute;
     left: 40px;
     top: 500px;
+    z-index: -1;
 
 }
 #enemyStatus {
@@ -103,4 +116,31 @@ button:hover {
 .battleButtons {
     position: relative;
     margin-left: 400px;
+}
+
+
+/* Animations for attacks */
+#fireBallA {
+    position: absolute;
+    left: 380px;
+    top:350px;
+}
+
+#vineWhipA {
+    position: absolute;
+    left: 380px;
+    top:350px;
+}
+
+#waterJetA {
+    position: absolute;
+    left: 380px;
+    top:350px;
+}
+
+#fireElementA {
+    position: absolute;
+    left: 380px;
+    top:350px;
+
 }

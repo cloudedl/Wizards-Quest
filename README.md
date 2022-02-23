@@ -57,5 +57,7 @@ Sometimes we lose. If the player loses the wizard sprite will turn to a death on
 
 
 CREDITS
+http://pixelartmaker.com/ for providing the tools to creat the Assets
+
 Music: “Clockwork Tale”, from PlayOnLoop.com
 Licensed under Creative Commons by Attribution 4.0
