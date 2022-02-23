@@ -48,11 +48,14 @@
         if (fireElemental.type === 'grass') {
             damage = 2 * damage
             fireElemental.health = fireElemental.health - damage
+            document.getElementById('combatLog').innerText = `${damage} damage was dealt to Elemental`
         } else if (fireElemental.type === 'water') {
             damage = damage / 2
             fireElemental.health = fireElemental.health - damage
+            document.getElementById('combatLog').innerText = `${damage} damage was dealt to Elemental`
         } else {
             fireElemental.health = fireElemental.health + damage
+            document.getElementById('combatLog').innerText = `${damage} was healed by Elemental`
         } 
         
         document.getElementById('fireBallA').style.display = 'block'
@@ -80,11 +83,14 @@
         if (fireElemental.type === 'fire') {
             damage = 2 * damage
             fireElemental.health = fireElemental.health - damage
+            document.getElementById('combatLog').innerText = `${damage} damage was dealt to Elemental`
         } else if (fireElemental.type === 'grass') {
             damage = damage / 2
             fireElemental.health = fireElemental.health - damage
+            document.getElementById('combatLog').innerText = `${damage} damage was dealt to Elemental`
         } else {
             fireElemental.health = fireElemental.health + damage
+            document.getElementById('combatLog').innerText = `${damage} health was healed by Elemental`
         }
 
         document.getElementById('waterJetA').style.display = 'block'
@@ -109,11 +115,14 @@
         if (fireElemental.type === 'water') {
             damage = 2 * damage
             fireElemental.health = fireElemental.health - damage
+            document.getElementById('combatLog').innerText = `${damage} damage was dealt to Elemental`
         } else if (fireElemental.type === 'fire') {
             damage = damage / 2
             fireElemental.health = fireElemental.health - damage
+            document.getElementById('combatLog').innerText = `${damage} damage was dealt to Elemental`
         } else {
             fireElemental.health = fireElemental.health + damage
+            document.getElementById('combatLog').innerText = `${damage} health was healed by Elemental`
         }
 
         document.getElementById('vineWhipA').style.display = 'block'
@@ -135,6 +144,8 @@
         disableButtons(true)
         turn += 1
 
+        document.getElementById('combatLog').innerText = `${healing} health was healed by the wizard`
+
         document.getElementById('healA').style.display = 'block'
         setTimeout(function() {document.getElementById('healA').style.display = 'none'}, 800)
         
@@ -150,12 +161,14 @@
             max = Math.floor(10);
             let superDamage = Math.floor(Math.random() * (10 - 5) + 5);
             wizard.health -= superDamage
+            document.getElementById('combatLog2').innerText = `${superDamage} damage was dealt to the wizard`
             // console.log('how much superDamage was done', superDamage)
         } else {
             min = Math.ceil(2);
             max = Math.floor(6);
             let damage = Math.floor(Math.random() * (6 - 2) + 2);
             wizard.health -= damage
+            document.getElementById('combatLog2').innerText = `${damage} damage was dealt to the wizard`
             // console.log ('damage done by enemy', damage)
         }
         
@@ -163,7 +176,7 @@
         console.log('what turn is it', turn)
         disableButtons(false)
         playerHealthStatus()
-
+        
         document.getElementById('fireElementA').style.display = 'block'
         setTimeout(function() {document.getElementById('fireElementA').style.display = 'none'}, 800)
 

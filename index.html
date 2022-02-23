@@ -14,7 +14,7 @@
    
     <div id="splashScreen" style="display: inline;">
         <button id="start">Start</button>
-        <audio src="audio/wizardsQuestVO.mp3" id="wizardsVO" autoplay></audio>
+        <audio src="audio/wizardsQuestVO.mp3" id="wizardsVO" controls autoplay></audio>
        
     </div>    
 
@@ -22,6 +22,7 @@
 
         <div id="victory" style="display: none;">
             <p>The Quest Continues!</p>
+            <button id="nextFight">Continue</button>
         </div>
         
         <div id="defeat" style="display: none;">
@@ -31,7 +32,8 @@
         
         <div id="enemyStatus">
             <p id='fireElementalHealth'>Elemental Health: 40</p>
-            <p id="combatLog">Log Location</p>
+            <p id="combatLog"></p>
+            <p id="combatLog2" style = 'display: inline;'></p>
         </div>
 
 

@@ -77,6 +77,19 @@ button:hover {
     padding: 15px;
 }
 
+#combatLog {
+    position: absolute;
+    top: -10px;
+    left: 525px;
+
+}
+
+#combatLog2 {
+    position: absolute;
+    top: 40px;
+    left: 525px;
+}
+
 #fireElementalHealth {
     position: absolute;
     top: -10px;
