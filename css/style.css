@@ -8,8 +8,11 @@ body {
     font-family: 'Press Start 2P', cursive;
 }
 
-.battlebox {
+#battlebox {
     border: 10px solid #00B506;
+    padding: 30px; 
+    margin: 0;
     width: 800px;
     height: 600px;
+    
 }

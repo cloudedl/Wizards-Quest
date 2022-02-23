@@ -125,8 +125,8 @@
 
         if (turn % 3 === 0) {
             min = Math.ceil(5);
-            max = Math.floor(15);
-            let superDamage = Math.floor(Math.random() * (15 - 5) + 5);
+            max = Math.floor(10);
+            let superDamage = Math.floor(Math.random() * (10 - 5) + 5);
             wizard.health -= superDamage
             console.log('how much superDamage was done', superDamage)
         } else {
@@ -141,23 +141,24 @@
         console.log('what turn is it', turn)
 
 
-        //function disables the buttons once someone is defeated. 
-        const disableButtons = () => {
-            document.getElementById('waterJet').disabled = true
-            document.getElementById('fireBall').disabled = true
-            document.getElementById('heal').disabled = true
-            document.getElementById('vineWhip').disabled = true
+        //function disables the buttons once someone is defeated.
+        //answer true or false when calling the function 
+        const disableButtons = (yesNo) => {
+            document.getElementById('waterJet').disabled = yesNo
+            document.getElementById('fireBall').disabled = yesNo
+            document.getElementById('heal').disabled = yesNo
+            document.getElementById('vineWhip').disabled = yesNo
         }
 
         //what happens when someone dies.
         if (wizard.health < 1) {
             console.log('the player is dead')
             wizard.health = 0
-            disableButtons()
+            disableButtons(true)
         } else if (fireElemental.health < 1) {
             console.log('player wins!')
             fireElemental.health = 0
-            disableButtons()
+            disableButtons(true)
         }
 
     }
