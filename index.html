@@ -10,13 +10,12 @@
 <body>
     <h1 id="title">Wizard's Quest!</h1>
    
-   <!-- <div id="rectangle"></div> -->
+   
    
     <div id="splashScreen" style="display: inline;">
         <button id="start">Start</button>
-        <!-- <audio id="splashAudio" onloadeddata="setHalfVolume()" controls="controls" autoplay>
-            <source src="music/POL-clockwork-tale-short.wav" type="audio/wav"> 
-        </audio> -->
+        <audio src="music/wizardsQuestVO.mp3" id="wizardsVO" autoplay></audio>
+       
     </div>    
 
     <div id="battleBox" style="display: none;">
@@ -26,12 +25,18 @@
             <p id="combatLog">Log Location</p>
         </div>
 
+        <img src="img/FireElemental.png" alt="fireElemental" id="fireElemental">
+        <img src="img/wizard.png" alt="pixel art wizard" id="wizard">
+
         <div id="playerStatus">
+
             <p id="wizardHealth">Wizard Health: 40</p>
-            <button id="fireBall">FireBall</button>
-            <button id="waterJet">Water Jet</button>
-            <button id="heal">Heal</button>
-            <button id="vineWhip">Vine Whip</button>
+            <div class="battleButtons">
+                <button id="fireBall">FireBall</button>
+                <button id="waterJet">Water Jet</button>
+                <button id="heal">Heal</button>
+                <button id="vineWhip">Vine Whip</button>
+            </div>
         </div>
         
 
