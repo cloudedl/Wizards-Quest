@@ -29,9 +29,11 @@
     let turn = 1 
 
     //function to write current health status of characters into html
-    const healthStatus = () => {
-        wizardHealth.innerText = `Wizard Health: ${wizard.health}`
+    const enemyHealthStatus = () => {
         fireElementalHealth.innerText = `Elemental Health ${fireElemental.health}`
+    }
+    const playerHealthStatus = () => {
+        wizardHealth.innerText = `Wizard Health: ${wizard.health}`
     }
 
 
@@ -53,11 +55,12 @@
             fireElemental.health = fireElemental.health + damage
         } 
         
-        enemyAttack()
+        setTimeout(() => {enemyAttack()}, 1000);
+        disableButtons(true)
         turn += 1
     
         console.log('did fireball reduce health of fireElemental' , fireElemental)
-        healthStatus()
+        enemyHealthStatus()
     }
     
 
@@ -77,10 +80,11 @@
             fireElemental.health = fireElemental.health + damage
         }
 
-        enemyAttack()
+        setTimeout(() => {enemyAttack()}, 1000);
+        disableButtons(true)
         turn +=1
         console.log('did waterJet reduce the health of the fireElemental', fireElemental)
-        healthStatus()
+        enemyHealthStatus()
     }
 
     // waterJet()
@@ -101,10 +105,11 @@
         } else {
             fireElemental.health = fireElemental.health + damage
         }
-        enemyAttack()
+        setTimeout(() => {enemyAttack()}, 1000);
+        disableButtons(true)
         turn += 1
         console.log('did vineWhip reduce the health of the fireElemental', fireElemental)
-        healthStatus()
+        enemyHealthStatus()
     }
 
     const heal = () => {
@@ -113,9 +118,10 @@
         healing = Math.floor(Math.random() * (12 - 2) + 2);
         wizard.health += healing
         console.log('is my wizard healing', wizard)
-        enemyAttack()
+        setTimeout(() => {enemyAttack()}, 1000);
+        disableButtons(true)
         turn += 1
-        healthStatus()
+        
     }
 
 
@@ -139,32 +145,37 @@
         
         console.log('did the wizard take damage', wizard)
         console.log('what turn is it', turn)
+        disableButtons(false)
+        playerHealthStatus()
 
 
-        //function disables the buttons once someone is defeated.
-        //answer true or false when calling the function 
-        const disableButtons = (yesNo) => {
-            document.getElementById('waterJet').disabled = yesNo
-            document.getElementById('fireBall').disabled = yesNo
-            document.getElementById('heal').disabled = yesNo
-            document.getElementById('vineWhip').disabled = yesNo
-        }
+       
 
         //what happens when someone dies.
         if (wizard.health < 1) {
             console.log('the player is dead')
             wizard.health = 0
             disableButtons(true)
+            playerHealthStatus()
         } else if (fireElemental.health < 1) {
             console.log('player wins!')
             fireElemental.health = 0
             disableButtons(true)
+            enemyHealthStatus()
         }
 
     }
 
 
-    
+
+//function disables the buttons once someone is defeated.
+//answer true or false when calling the function 
+const disableButtons = (yesNo) => {
+    document.getElementById('waterJet').disabled = yesNo
+    document.getElementById('fireBall').disabled = yesNo
+    document.getElementById('heal').disabled = yesNo
+    document.getElementById('vineWhip').disabled = yesNo
+}
 
 
 
@@ -174,8 +185,16 @@ const startGame = () => {
     let battler = document.getElementById('battleBox')
 
     start.style.display = 'none'
-    battler.style.display = 'inline'
+    battler.style.display = 'block'
 }
+
+
+
+// //setAudioVolume to half
+// const setHalfVolume = () => {
+//     let myAudio = document.getElementById('splashAudio')
+//     myAudio.volume = 0.2; 
+// }
 
 const wizardHealth = document.getElementById('wizardHealth')
 const fireElementalHealth = document.getElementById('fireElementalHealth')        

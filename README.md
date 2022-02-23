@@ -53,3 +53,9 @@ Sometimes we lose. If the player loses the wizard sprite will turn to a death on
    ![Wizard Walking](/img/projectimages/IMG_0337.jpg)
 
    The wizard walks off into the distance. Some text will appear at the top of the screen in a box. This will occur after 3 enemy battles. 
+
+
+
+CREDITS
+Music: “Clockwork Tale”, from PlayOnLoop.com
+Licensed under Creative Commons by Attribution 4.0

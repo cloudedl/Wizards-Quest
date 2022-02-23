@@ -8,11 +8,65 @@ body {
     font-family: 'Press Start 2P', cursive;
 }
 
-#battlebox {
+/* #rectangle {
+    width: 300px;
+    border: 15px solid green;
+    padding: 50px;
+    margin: 20px;
+} */
+
+#battleBox {
+    position: relative;
+    width: 1200px;
+    height: 900px;
     border: 10px solid #00B506;
-    padding: 30px; 
+    padding: 10px;  
+    margin-left: 17%;
+}
+
+#enemyStatus {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    width: 1190px;
+    height: 50px;
+    border: 10px solid #00B506;
     margin: 0;
-    width: 800px;
-    height: 600px;
-    
+    padding: 15px;
+}
+
+#fireElementalHealth {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    width: 300px;
+    height: 50px;
+    border: 10px solid #00B506;
+    margin: 0;
+    padding: 15px;
+    font-size: small;
+
+}
+
+#playerStatus {
+    position: absolute;
+    top: 830px;
+    left: -10px;
+    width: 1190px;
+    height: 50px;
+    border: 10px solid #00B506;
+    margin: 0;
+    padding: 15px;
+}
+
+#wizardHealth {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    width: 300px;
+    height: 50px;
+    border: 10px solid #00B506;
+    margin: 0;
+    padding: 15px;
+    font-size: small;
 }
