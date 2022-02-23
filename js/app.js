@@ -55,11 +55,18 @@
             fireElemental.health = fireElemental.health + damage
         } 
         
+        document.getElementById('fireBallA').style.display = 'block'
+        setTimeout(function() {document.getElementById('fireBallA').style.display = 'none'}, 800)
+
+
+        //have enemyAttack function activate after some time
         setTimeout(() => {enemyAttack()}, 1000);
+        //disable the attack buttons after pressing one
         disableButtons(true)
+        //move the turn counter forward
         turn += 1
     
-        console.log('did fireball reduce health of fireElemental' , fireElemental)
+        // console.log('did fireball reduce health of fireElemental' , fireElemental)
         enemyHealthStatus()
     }
     
@@ -80,10 +87,13 @@
             fireElemental.health = fireElemental.health + damage
         }
 
+        document.getElementById('waterJetA').style.display = 'block'
+        setTimeout(function() {document.getElementById('waterJetA').style.display = 'none'}, 800)
+
         setTimeout(() => {enemyAttack()}, 1000);
         disableButtons(true)
         turn +=1
-        console.log('did waterJet reduce the health of the fireElemental', fireElemental)
+        // console.log('did waterJet reduce the health of the fireElemental', fireElemental)
         enemyHealthStatus()
     }
 
@@ -105,10 +115,13 @@
         } else {
             fireElemental.health = fireElemental.health + damage
         }
+
+        document.getElementById('vineWhipA').style.display = 'block'
+        setTimeout(function() {document.getElementById('vineWhipA').style.display = 'none'}, 800)
         setTimeout(() => {enemyAttack()}, 1000);
         disableButtons(true)
         turn += 1
-        console.log('did vineWhip reduce the health of the fireElemental', fireElemental)
+        // console.log('did vineWhip reduce the health of the fireElemental', fireElemental)
         enemyHealthStatus()
     }
 
@@ -117,10 +130,13 @@
         max = Math.floor(12);
         healing = Math.floor(Math.random() * (12 - 2) + 2);
         wizard.health += healing
-        console.log('is my wizard healing', wizard)
+        // console.log('is my wizard healing', wizard)
         setTimeout(() => {enemyAttack()}, 1000);
         disableButtons(true)
         turn += 1
+
+        document.getElementById('healA').style.display = 'block'
+        setTimeout(function() {document.getElementById('healA').style.display = 'none'}, 800)
         
     }
 
@@ -134,19 +150,22 @@
             max = Math.floor(10);
             let superDamage = Math.floor(Math.random() * (10 - 5) + 5);
             wizard.health -= superDamage
-            console.log('how much superDamage was done', superDamage)
+            // console.log('how much superDamage was done', superDamage)
         } else {
             min = Math.ceil(2);
             max = Math.floor(6);
             let damage = Math.floor(Math.random() * (6 - 2) + 2);
             wizard.health -= damage
-            console.log ('damage done by enemy', damage)
+            // console.log ('damage done by enemy', damage)
         }
         
         console.log('did the wizard take damage', wizard)
         console.log('what turn is it', turn)
         disableButtons(false)
         playerHealthStatus()
+
+        document.getElementById('fireElementA').style.display = 'block'
+        setTimeout(function() {document.getElementById('fireElementA').style.display = 'none'}, 800)
 
 
       
