@@ -41,6 +41,7 @@ button:hover {
     top:350px;
     border: 10px solid #00B506;
     color: white;
+    z-index: 4;
     
 }
 
@@ -51,8 +52,25 @@ button:hover {
     top:350px;
     border: 10px solid #00B506;
     color: white;
+    z-index: 4;
 }
 #fireElemental {
+    position: absolute;
+    right: 100px;
+    top: 100px;
+    z-index: -1;
+}
+
+#waterElemental {
+
+    position: absolute;
+    right: 100px;
+    top: 100px;
+    z-index: -1;
+
+}
+
+#grassElemental {
     position: absolute;
     right: 100px;
     top: 100px;
@@ -90,7 +108,7 @@ button:hover {
     left: 525px;
 }
 
-#fireElementalHealth {
+#elementalHealth {
     position: absolute;
     top: -10px;
     left: -10px;
@@ -163,4 +181,17 @@ button:hover {
     left: 75px;
     top:425px;
     
+}
+
+#vineWhipElem {
+    position: absolute;
+    left: 380px;
+    top:350px;
+
+}
+
+#waterJetElem {
+    position: absolute;
+    left: 380px;
+    top:350px;
 }

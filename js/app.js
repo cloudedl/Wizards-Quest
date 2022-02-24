@@ -1,36 +1,44 @@
 // document.addEventListener("DOMContentLoaded", () => {})
 
 
-//Objects for Characters
-    const fireElemental = {
-        name: 'Fire Elemental',
-        type: 'fire',
-        health: 40
-    }
-    console.log('fire elemental object before damage', fireElemental)
-    
-    const waterElemental = {
-        name: 'Water Elemental',
-        type: 'water',
-        health: 40
-    }
-
-    const grassElemental = { 
-        name: 'Grass Elemental',
-        type: 'grass',
-        health: 40
-    }
     const wizard = {
         name: 'wizard',
-        health: 40
+        health: 1000
     }
+
+    let elem = [
+        {
+            name: 'Fire Elemental',
+            type: 'fire',
+            health: 40
+        },
+        {
+            name: 'Water Elemental',
+            type: 'water',
+            health: 40
+        },
+        { 
+            name: 'Grass Elemental',
+            type: 'grass',
+            health: 40
+        }
+
+
+    ]
+
+
+
 
     //turn counter for each turn in the battler
     let turn = 1 
+    let battleCounter = 0
+
+
+
 
     //function to write current health status of characters into html
     const enemyHealthStatus = () => {
-        fireElementalHealth.innerText = `Elemental Health ${fireElemental.health}`
+        elementalHealth.innerText = `Elemental Health ${elem[battleCounter].health}`
     }
     const playerHealthStatus = () => {
         wizardHealth.innerText = `Wizard Health: ${wizard.health}`
@@ -45,16 +53,16 @@
         max = Math.floor(8);
         let damage = Math.floor(Math.random() * (8 - 1) + 1);
         console.log('damage done by fireball', damage)
-        if (fireElemental.type === 'grass') {
+        if (elem[battleCounter].type === 'grass') {
             damage = 2 * damage
-            fireElemental.health = fireElemental.health - damage
+            elem[battleCounter].health = elem[battleCounter].health - damage
             document.getElementById('combatLog').innerText = `${damage} damage was dealt to Elemental`
-        } else if (fireElemental.type === 'water') {
+        } else if (elem[battleCounter].type === 'water') {
             damage = damage / 2
-            fireElemental.health = fireElemental.health - damage
+            elem[battleCounter].health = elem[battleCounter].health - damage
             document.getElementById('combatLog').innerText = `${damage} damage was dealt to Elemental`
         } else {
-            fireElemental.health = fireElemental.health + damage
+            elem[battleCounter].health = elem[battleCounter].health + damage
             document.getElementById('combatLog').innerText = `${damage} was healed by Elemental`
         } 
         
@@ -80,16 +88,16 @@
         let damage = Math.floor(Math.random() * (8 - 1) + 1);
         console.log('damage done by waterJet', damage)
 
-        if (fireElemental.type === 'fire') {
+        if (elem[battleCounter].type === 'fire') {
             damage = 2 * damage
-            fireElemental.health = fireElemental.health - damage
+            elem[battleCounter].health = elem[battleCounter].health - damage
             document.getElementById('combatLog').innerText = `${damage} damage was dealt to Elemental`
-        } else if (fireElemental.type === 'grass') {
+        } else if (elem[battleCounter].type === 'grass') {
             damage = damage / 2
-            fireElemental.health = fireElemental.health - damage
+            elem[battleCounter].health = elem[battleCounter].health - damage
             document.getElementById('combatLog').innerText = `${damage} damage was dealt to Elemental`
         } else {
-            fireElemental.health = fireElemental.health + damage
+            elem[battleCounter].health = elem[battleCounter].health + damage
             document.getElementById('combatLog').innerText = `${damage} health was healed by Elemental`
         }
 
@@ -112,16 +120,16 @@
         let damage = Math.floor(Math.random() * (8 - 1) + 1);
         console.log('damage done by vineWhip', damage)
 
-        if (fireElemental.type === 'water') {
+        if (elem[battleCounter].type === 'water') {
             damage = 2 * damage
-            fireElemental.health = fireElemental.health - damage
+            elem[battleCounter].health = elem[battleCounter].health - damage
             document.getElementById('combatLog').innerText = `${damage} damage was dealt to Elemental`
-        } else if (fireElemental.type === 'fire') {
+        } else if (elem[battleCounter].type === 'fire') {
             damage = damage / 2
-            fireElemental.health = fireElemental.health - damage
+            elem[battleCounter].health = elem[battleCounter].health - damage
             document.getElementById('combatLog').innerText = `${damage} damage was dealt to Elemental`
         } else {
-            fireElemental.health = fireElemental.health + damage
+            elem[battleCounter].health = elem[battleCounter].health + damage
             document.getElementById('combatLog').innerText = `${damage} health was healed by Elemental`
         }
 
@@ -155,21 +163,22 @@
 
     const enemyAttack = () => {
         
-
-        if (turn % 3 === 0) {
-            min = Math.ceil(5);
-            max = Math.floor(10);
-            let superDamage = Math.floor(Math.random() * (10 - 5) + 5);
-            wizard.health -= superDamage
-            document.getElementById('combatLog2').innerText = `${superDamage} damage was dealt to the wizard`
-            // console.log('how much superDamage was done', superDamage)
-        } else {
-            min = Math.ceil(2);
-            max = Math.floor(6);
-            let damage = Math.floor(Math.random() * (6 - 2) + 2);
-            wizard.health -= damage
-            document.getElementById('combatLog2').innerText = `${damage} damage was dealt to the wizard`
-            // console.log ('damage done by enemy', damage)
+        if (elem[battleCounter].health > 1) {
+            if (turn % 3 === 0) {
+                min = Math.ceil(4);
+                max = Math.floor(8);
+                let superDamage = Math.floor(Math.random() * (8 - 4) + 4);
+                wizard.health -= superDamage
+                document.getElementById('combatLog2').innerText = `${superDamage} damage was dealt to the wizard`
+                // console.log('how much superDamage was done', superDamage)
+            } else {
+                min = Math.ceil(2);
+                max = Math.floor(4);
+                let damage = Math.floor(Math.random() * (4 - 2) + 2);
+                wizard.health -= damage
+                document.getElementById('combatLog2').innerText = `${damage} damage was dealt to the wizard`
+                // console.log ('damage done by enemy', damage)
+            }
         }
         
         console.log('did the wizard take damage', wizard)
@@ -177,10 +186,18 @@
         disableButtons(false)
         playerHealthStatus()
         
-        document.getElementById('fireElementA').style.display = 'block'
-        setTimeout(function() {document.getElementById('fireElementA').style.display = 'none'}, 800)
-
-
+        if (battleCounter === 0) {
+            document.getElementById('fireElementA').style.display = 'block'
+            setTimeout(function() {document.getElementById('fireElementA').style.display = 'none'}, 800)
+        } else if (battleCounter === 1) {
+            document.getElementById('waterJetElem').style.display = 'block'
+            setTimeout(function() {document.getElementById('waterJetElem').style.display = 'none'}, 800)
+        } else if (battleCounter === 2) {
+            document.getElementById('vineWhipElem').style.display = 'block'
+            setTimeout(function() {document.getElementById('vineWhipElem').style.display = 'none'}, 800)
+        }
+        
+       
       
         
         //what happens when someone dies.
@@ -191,13 +208,22 @@
             playerHealthStatus()
             document.getElementById('wizard').style.transform = 'rotate(90deg)';
             document.getElementById('defeat').style.display = 'inline'
-        } else if (fireElemental.health < 1) {
+        } else if (elem[battleCounter].health < 1) {
             console.log('player wins!')
-            fireElemental.health = 0
+            elem[battleCounter].health = 0
             disableButtons(true)
             enemyHealthStatus()
-            document.getElementById('fireElemental').style.transform = 'rotate(-90deg)';
+
+            if (battleCounter === 0) {
+                document.getElementById('fireElemental').style.transform = 'rotate(-90deg)';
+            } else if (battleCounter === 1) {
+                document.getElementById('waterElemental').style.transform = 'rotate(-90deg)';
+            } else if (battleCounter === 2) {
+                document.getElementById('grassElemental').style.transform = 'rotate(-90deg)';
+            }
+            
             document.getElementById('victory').style.display = 'inline'
+            document.get
         }
 
     }
@@ -225,6 +251,20 @@ const startGame = () => {
 }
 
 
+const setBattleField = () => {
+    battleCounter += 1
+    if (battleCounter === 1) {
+        document.getElementById('fireElemental').style.display = 'none'
+        document.getElementById('waterElemental').style.display= 'block'
+        document.getElementById('victory').style.display = 'none'
+        disableButtons(false)
+    } else if (battleCounter === 2) {
+        document.getElementById('waterElemental').style.display = 'none'
+        document.getElementById('grassElemental').style.display= 'block'
+        document.getElementById('victory').style.display = 'none'
+        disableButtons(false)
+    }
+}
 
 // //setAudioVolume to half
 // const setHalfVolume = () => {
@@ -233,7 +273,8 @@ const startGame = () => {
 // }
 
 const wizardHealth = document.getElementById('wizardHealth')
-const fireElementalHealth = document.getElementById('fireElementalHealth')        
+const fireElementalHealth = document.getElementById('fireElementalHealth')   
+document.getElementById('nextFight').addEventListener('click', setBattleField)     
 document.getElementById('start').addEventListener('click', startGame)
 document.getElementById('heal').addEventListener('click', heal )
 document.getElementById('waterJet').addEventListener('click', waterJet)
