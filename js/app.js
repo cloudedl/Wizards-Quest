@@ -1,5 +1,12 @@
 // document.addEventListener("DOMContentLoaded", () => {})
-
+let fire = new Audio('audio/fireWhoosh.wav');
+let restoreHealth = new Audio('audio/sparkle.wav');
+let water = new Audio('audio/waterFlap.wav');
+let whip = new Audio('audio/whipStrike.wav');
+let fireElem = new Audio('audio/fireWhooshElem.wav');
+let waterElem = new Audio('audio/waterFlapElem.wav');
+let whipElem = new Audio('audio/whipStrikeElem.wav');
+let startQuest = new Audio('audio/wizardsQuestVO.mp3');
 
     const wizard = {
         name: 'wizard',
@@ -189,12 +196,15 @@
         if (battleCounter === 0) {
             document.getElementById('fireElementA').style.display = 'block'
             setTimeout(function() {document.getElementById('fireElementA').style.display = 'none'}, 800)
+            fireElem.play()
         } else if (battleCounter === 1) {
             document.getElementById('waterJetElem').style.display = 'block'
             setTimeout(function() {document.getElementById('waterJetElem').style.display = 'none'}, 800)
+            waterElem.play()
         } else if (battleCounter === 2) {
             document.getElementById('vineWhipElem').style.display = 'block'
             setTimeout(function() {document.getElementById('vineWhipElem').style.display = 'none'}, 800)
+            whipElem.play()
         }
         
        

@@ -13,9 +13,7 @@
    
    
     <div id="splashScreen" style="display: inline;">
-        <button id="start">Start</button>
-        <audio src="audio/wizardsQuestVO.mp3" id="wizardsVO" controls autoplay></audio>
-       
+        <button id="start" onclick="startQuest.play()">Start</button>
     </div>    
 
     <div id="battleBox" style="display: none;">
@@ -42,10 +40,10 @@
 
             <p id="wizardHealth">Wizard Health: 40</p>
             <div class="battleButtons">
-                <button id="fireBall">FireBall</button>
-                <button id="waterJet">Water Jet</button>
-                <button id="heal">Heal</button>
-                <button id="vineWhip">Vine Whip</button>
+                <button id="fireBall" onclick="fire.play()">FireBall</button>
+                <button id="waterJet" onclick="water.play()">Water Jet</button>
+                <button id="heal" onclick="restoreHealth.play()">Heal</button>
+                <button id="vineWhip" onclick="whip.play()">Vine Whip</button>
             </div>
         </div>
 
@@ -64,5 +62,9 @@
     </div>
 
     <script src="js/app.js"></script>
+    <script>
+     
+
+    </script>
 </body>
 </html>

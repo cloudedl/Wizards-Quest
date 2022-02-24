@@ -58,6 +58,7 @@ Sometimes we lose. If the player loses the wizard sprite will turn to a death on
 
 CREDITS
 http://pixelartmaker.com/ for providing the tools to creat the Assets
+https://mixkit.co/free-sound-effects/ for battle sound effects.
 
 Music: “Clockwork Tale”, from PlayOnLoop.com
 Licensed under Creative Commons by Attribution 4.0
