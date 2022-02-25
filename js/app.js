@@ -78,7 +78,7 @@ let startQuest = new Audio('audio/wizardsQuestVO.mp3');
 
 
         //have enemyAttack function activate after some time
-        setTimeout(() => {enemyAttack()}, 1000);
+        setTimeout(() => {enemyAttack()}, 2000);
         //disable the attack buttons after pressing one
         disableButtons(true)
         //move the turn counter forward
@@ -111,7 +111,7 @@ let startQuest = new Audio('audio/wizardsQuestVO.mp3');
         document.getElementById('waterJetA').style.display = 'block'
         setTimeout(function() {document.getElementById('waterJetA').style.display = 'none'}, 800)
 
-        setTimeout(() => {enemyAttack()}, 1000);
+        setTimeout(() => {enemyAttack()}, 2000);
         disableButtons(true)
         turn +=1
         // console.log('did waterJet reduce the health of the fireElemental', fireElemental)
@@ -142,7 +142,7 @@ let startQuest = new Audio('audio/wizardsQuestVO.mp3');
 
         document.getElementById('vineWhipA').style.display = 'block'
         setTimeout(function() {document.getElementById('vineWhipA').style.display = 'none'}, 800)
-        setTimeout(() => {enemyAttack()}, 1000);
+        setTimeout(() => {enemyAttack()}, 2000);
         disableButtons(true)
         turn += 1
         // console.log('did vineWhip reduce the health of the fireElemental', fireElemental)
@@ -155,7 +155,7 @@ let startQuest = new Audio('audio/wizardsQuestVO.mp3');
         healing = Math.floor(Math.random() * (12 - 4) + 4);
         wizard.health += healing
         // console.log('is my wizard healing', wizard)
-        setTimeout(() => {enemyAttack()}, 1000);
+        setTimeout(() => {enemyAttack()}, 2000);
         disableButtons(true)
         turn += 1
         playerHealthStatus()

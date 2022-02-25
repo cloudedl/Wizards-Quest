@@ -72,7 +72,7 @@ button:hover {
 
 #grassElemental {
     position: absolute;
-    right: 100px;
+    right: 80px;
     top: 100px;
     z-index: -1;
 }
