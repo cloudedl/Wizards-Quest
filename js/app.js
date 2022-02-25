@@ -45,7 +45,7 @@ let startQuest = new Audio('audio/wizardsQuestVO.mp3');
 
     //function to write current health status of characters into html
     const enemyHealthStatus = () => {
-        elementalHealth.innerText = `Elemental Health ${elem[battleCounter].health}`
+        elementalHealth.innerText = `Elemental Health: ${elem[battleCounter].health}`
     }
     const playerHealthStatus = () => {
         wizardHealth.innerText = `Wizard Health: ${wizard.health}`
@@ -63,14 +63,14 @@ let startQuest = new Audio('audio/wizardsQuestVO.mp3');
         if (elem[battleCounter].type === 'grass') {
             damage = 2 * damage
             elem[battleCounter].health = elem[battleCounter].health - damage
-            document.getElementById('combatLog').innerText = `Wizard dealt ${damage} damage to the Elemental`
+            document.getElementById('combatLog').innerText = `Wizard dealt ${damage} damage to the ${elem[battleCounter].name}`
         } else if (elem[battleCounter].type === 'water') {
             damage = damage / 2
             elem[battleCounter].health = elem[battleCounter].health - damage
-            document.getElementById('combatLog').innerText = `Wizard dealt ${damage} damage to the Elemental`
+            document.getElementById('combatLog').innerText = `Wizard dealt ${damage} damage to the ${elem[battleCounter].name}`
         } else {
             elem[battleCounter].health = elem[battleCounter].health + damage
-            document.getElementById('combatLog').innerText = `Wizard healed Elemental for ${damage} health`
+            document.getElementById('combatLog').innerText = `Wizard healed the ${elem[battleCounter].name} for ${damage} health`
         } 
         
         document.getElementById('fireBallA').style.display = 'block'
@@ -98,14 +98,14 @@ let startQuest = new Audio('audio/wizardsQuestVO.mp3');
         if (elem[battleCounter].type === 'fire') {
             damage = 2 * damage
             elem[battleCounter].health = elem[battleCounter].health - damage
-            document.getElementById('combatLog').innerText = `Wizard dealt ${damage} damage to the Elemental`
+            document.getElementById('combatLog').innerText = `Wizard dealt ${damage} damage to the ${elem[battleCounter].name}`
         } else if (elem[battleCounter].type === 'grass') {
             damage = damage / 2
             elem[battleCounter].health = elem[battleCounter].health - damage
-            document.getElementById('combatLog').innerText = `Wizard dealt ${damage} damage to the Elemental`
+            document.getElementById('combatLog').innerText = `Wizard dealt ${damage} damage to the ${elem[battleCounter].name}`
         } else {
             elem[battleCounter].health = elem[battleCounter].health + damage
-            document.getElementById('combatLog').innerText = `Wizard healed Elemental for ${damage} health`
+            document.getElementById('combatLog').innerText = `Wizard healed the ${elem[battleCounter].name} for ${damage} health`
         }
 
         document.getElementById('waterJetA').style.display = 'block'
@@ -130,14 +130,14 @@ let startQuest = new Audio('audio/wizardsQuestVO.mp3');
         if (elem[battleCounter].type === 'water') {
             damage = 2 * damage
             elem[battleCounter].health = elem[battleCounter].health - damage
-            document.getElementById('combatLog').innerText = `Wizard dealt ${damage} damage to the Elemental`
+            document.getElementById('combatLog').innerText = `Wizard dealt ${damage} damage to the ${elem[battleCounter].name}`
         } else if (elem[battleCounter].type === 'fire') {
             damage = damage / 2
             elem[battleCounter].health = elem[battleCounter].health - damage
-            document.getElementById('combatLog').innerText = `Wizard dealt ${damage} damage to the Elemental`
+            document.getElementById('combatLog').innerText = `Wizard dealt ${damage} damage to the ${elem[battleCounter].name}`
         } else {
             elem[battleCounter].health = elem[battleCounter].health + damage
-            document.getElementById('combatLog').innerText = `Wizard healed Elemental for ${damage} health`
+            document.getElementById('combatLog').innerText = `Wizard healed the ${elem[battleCounter].name} for ${damage} health`
         }
 
         document.getElementById('vineWhipA').style.display = 'block'
@@ -177,14 +177,14 @@ let startQuest = new Audio('audio/wizardsQuestVO.mp3');
                 max = Math.floor(12);
                 let superDamage = Math.floor(Math.random() * (12 - 4) + 4);
                 wizard.health -= superDamage
-                document.getElementById('combatLog2').innerText = `Elemental dealt ${superDamage} damage to the Wizard`
+                document.getElementById('combatLog2').innerText = `${elem[battleCounter].name} dealt ${superDamage} damage to the Wizard`
                 // console.log('how much superDamage was done', superDamage)
             } else {
                 min = Math.ceil(2);
                 max = Math.floor(4);
                 let damage = Math.floor(Math.random() * (4 - 2) + 2);
                 wizard.health -= damage
-                document.getElementById('combatLog2').innerText = `Elemental dealt ${damage} damage to the Wizard`
+                document.getElementById('combatLog2').innerText = `${elem[battleCounter].name} dealt ${damage} damage to the Wizard`
                 // console.log ('damage done by enemy', damage)
             }
         }
@@ -268,12 +268,22 @@ const setBattleField = () => {
         document.getElementById('fireElemental').style.display = 'none'
         document.getElementById('waterElemental').style.display= 'block'
         document.getElementById('victory').style.display = 'none'
+        document.getElementById('combatLog').innerText = ""
+        document.getElementById('combatLog2').innerText = ""
+        elementalHealth.innerText = `Elemental Health: ${elem[battleCounter].health}`
         disableButtons(false)
     } else if (battleCounter === 2) {
         document.getElementById('waterElemental').style.display = 'none'
         document.getElementById('grassElemental').style.display= 'block'
         document.getElementById('victory').style.display = 'none'
+        document.getElementById('combatLog').innerText = ""
+        document.getElementById('combatLog2').innerText = ""
+        elementalHealth.innerText = `Elemental Health: ${elem[battleCounter].health}`
         disableButtons(false)
+    } else if (battleCounter === 3) {
+        document.getElementById('wizardLeaves').style.display = 'block'
+        document.getElementById('victory').style.display = 'none'
+        document.getElementById('battleBox').style.display = 'none'
     }
 }
 
