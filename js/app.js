@@ -53,7 +53,6 @@ let startQuest = new Audio('audio/wizardsQuestVO.mp3');
 
 
 
-
 // Functions for Attacks and Heals
     const fireball = () => {
         min = Math.ceil(1);
