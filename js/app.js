@@ -284,9 +284,22 @@ const setBattleField = () => {
         document.getElementById('wizardLeaves').style.display = 'block'
         document.getElementById('victory').style.display = 'none'
         document.getElementById('battleBox').style.display = 'none'
+        typeWriter()
     }
 }
 
+
+let i = 0;
+let txt = 'Having defeated his enemies the Wizard journeys on'; /* The text */
+let speed = 50; /* The speed/duration of the effect in milliseconds */
+
+function typeWriter() {
+  if (i < txt.length) {
+    document.getElementById("flavorText").innerHTML += txt.charAt(i);
+    i++;
+    setTimeout(typeWriter, speed);
+  }
+}
 // //setAudioVolume to half
 // const setHalfVolume = () => {
 //     let myAudio = document.getElementById('splashAudio')
